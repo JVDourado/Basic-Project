@@ -1,7 +1,7 @@
 # Basic-Project
 A Python basic project (Version 1.0)
 
-This is a python basic project, that I'm still workin on (and inted to transform in a real big one)
+This is a python basic project, that I'm still workin on (and intend to transform it in a real big one)
 
 What we have for now:
 - Main menu with the options: Math, Calendar and Exit
