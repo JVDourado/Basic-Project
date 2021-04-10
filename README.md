@@ -6,7 +6,7 @@ This is a python basic project, that I'm still workin on (and inted to transform
 What we have for now:
 - Main menu with the options: Math, Calendar and Exit
 - Math menu with the options: Previous menu, Addition, Subtraction, Multiplication, Square Root, Exponentiation and Division
-- Calendar menu with the options: Previous menu, Month days, Birthday month, Especific year calendar an Day names
+- Calendar menu with the options: Previous menu, Month days, Birthday month, Especific year calendar and Day names
 
 
 Next updates:
