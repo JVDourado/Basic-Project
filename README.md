@@ -1,5 +1,5 @@
 # Basic-Project
-A Python basic project (Version 1.0)
+A Python basic project (Version 1.1)
 
 This is a python basic project, that I'm still workin on (and intend to transform it in a real big one)
 
