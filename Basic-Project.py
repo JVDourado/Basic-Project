@@ -261,7 +261,8 @@ def calend(op):
           break
     
     if calend_op == 'P' or calend_op == 'p':
-        sys.exit()
+        os.system('cls')
+        previous_calendar(year)
 
 def next_calendar(year):
     year = year + 1
