@@ -8,7 +8,7 @@ What we have for now:
 - Math menu with the options: Previous menu, Addition, Subtraction, Multiplication, Square Root, Exponentiation and Division
 
 Updates:
--Now the calendar function is more interactive, being able to navigate between calendars of previous years and the coming years based on input, in addition we have the option to return to the main menu
+- Now the calendar function is more interactive, being able to navigate between calendars of previous years and the coming years based on input, in addition we have the option to return to the main menu
 
 Next updates:
 - New features for the math menu and main menu
