@@ -5,7 +5,7 @@ def main():
     os.system('cls')
 
     print("   *** Basic Program ***\n");
-    print("   ***  Version 1.0  ***\n\n");
+    print("   ***  Version 1.1  ***\n\n");
     print("-----------------------------\n")
     print("---------- PROGRAM ----------\n")
     print("----- 1. MATH           -----\n")
@@ -241,128 +241,73 @@ def calend(op):
     os.system('cls')
   
     print("***  Calendar Menu  ***\n");
-    print("***   Version 1.0   ***\n\n");
+    print("***   Version 1.1   ***\n\n");
     print("-----------------------------------------\n")
     print("-------------   CALENDAR  ---------------\n")
-    print("------ 0. PREVIOUS MENU            ------\n")
-    print("------ 1. MONTH DAYS               ------\n")
-    print("------ 2. BIRTHDAY MONTH           ------\n")
-    print("------ 3. ESPECIFIC YEAR CALENDAR  ------\n")
-    print("------ 4. DAY NAMES                ------\n")
+    year = int(input("Wanna see the calendar of wich year? "))
     print("-----------------------------------------\n")
+    print(calendar.TextCalendar(calendar.SUNDAY).formatyear(year))
+  
+    calend_op = str(input("P for previous, N for next & M for main menu (P/N/M) "))
 
-    op_calendar = int(input("Insert the desired option: "))
-
-    while True:
-      if op_calendar < 0 or op_calendar > 4:
-          os.systeam('cls')
-          calendar(op)
+    while calend_op != 'P' or calend_op != 'p':
+      if calend_op == 'N' or calend_op == 'n':
+          os.system('cls')
+          next_calendar(year)
+      elif calend_op == 'M' or calend_op == 'm':
+          print("Going back to the main menu...")
+          main()
       else:
           break
+    
+    if calend_op == 'P' or calend_op == 'p':
+        sys.exit()
 
-    if op_calendar == 1:
-        os.system('cls')
-        month_days(op_calendar)
-        
-    elif op_calendar == 2:
-        os.system('cls')
-        birthday(op_calendar)
-        
-    elif op_calendar == 3:
-        os.system('cls')
-        especific_calendar(op_calendar)
+def next_calendar(year):
+    year = year + 1
+    print(calendar.TextCalendar(calendar.SUNDAY).formatyear(year))
 
-    elif op_calendar == 4:
-        os.system('cls')
-        day_names(op_calendar)
-
-    elif op_calendar == 0:
-      
-        go_back = str(input("Are you sure? (Y/N) "))
+    calend_op = str(input("P for previous, N for next & M for main menu (P/N/M) "))
+    
+    while calend_op != 'P' or calend_op != 'p':
+      if calend_op == 'N' or calend_op == 'n':
+          os.system('cls')
+          next_calendar(year)
           
-        while go_back != 'Y' or go_back != 'y':
-          if go_back == 'N' or go_back == 'n':
-            os.system('cls')
-            calendar(op_calendar)
-          else:
-            break
+      elif calend_op == 'M' or calend_op == 'm':
+          print("Going back to the main menu...")
+          main()
+          
+      else:
+          break
+        
+    if calend_op == 'P' or calend_op == 'p':
+        os.system('cls')
+        previous_calendar(year)
 
-        if go_back == 'Y' or go_back == 'y':
-            main()
 
+def previous_calendar(year):
+    year = year - 1
     
-def month_days(op_calendar):
-  for days in calendar.mdays:
-    print(days)
+    print(calendar.TextCalendar(calendar.SUNDAY).formatyear(year))
 
-  go_back = str(input("Wanna end the program? (Y/N) "))
-
-  while go_back != 'Y' or go_back != 'y':
-    if go_back == 'N' or go_back == 'n':
-      print("Going back to the main menu!")
-      main()
-    else:
-      break
+    calend_op = str(input("P for previous, N for next & M for main menu (P/N/M) "))
     
-  if go_back == 'Y' or go_back == 'y':
-    print("Ending program...")
-    sys.exit()
-  
-def birthday(op_calendar):
-  
-  birthday = calendar.TextCalendar(calendar.SUNDAY)
-  
-  birth_year = int(input("Birth year: "))
-  birth_month = int(input("Birth month: "))
-
-  birthday.prmonth(birth_year, birth_month)
-
-  go_back = str(input("\nWanna end the program? (Y/N) "))
-
-  while go_back != 'Y' or go_back != 'y':
-    if go_back == 'N' or go_back == 'n':
-      print("Going back to the main menu!")
-      main()
-    else:
-      break
-    
-  if go_back == 'Y' or go_back == 'y':
-    print("Ending program...")
-    sys.exit()
-  
-def especific_calendar(op_calendar):
-  especific_year = int(input("Wanna see the calendar of what year? "))
-  print(calendar.TextCalendar(calendar.SUNDAY).formatyear(especific_year))
-  
-  go_back = str(input("Wanna end the program? (Y/N) "))
-
-  while go_back != 'Y' or go_back != 'y':
-    if go_back == 'N' or go_back == 'n':
-      print("Going back to the main menu!")
-      main()
-    else:
-      break
-    
-  if go_back == 'Y' or go_back == 'y':
-    print("Ending program...")
-    sys.exit()
-      
-def day_names(op_calendar):
-  for day in calendar.day_name:
-    print(day)
-
-  go_back = str(input("Wanna end the program? (Y/N) "))
-
-  while go_back != 'Y' or go_back != 'y':
-    if go_back == 'N' or go_back == 'n':
-      print("Going back to the main menu!")
-      main()
-    else:
-      break
-    
-  if go_back == 'Y' or go_back == 'y':
-    print("Ending program...")
-    sys.exit()
+    while calend_op != 'P' or calend_op != 'p':
+      if calend_op == 'N' or calend_op == 'n':
+          os.system('cls')
+          next_calendar(year)
+          
+      elif calend_op == 'M' or calend_op == 'm':
+          print("Going back to the main menu...")
+          main()
+          
+      else:
+          break
+        
+    if calend_op == 'P' or calend_op == 'p':
+        os.system('cls')
+        previous_calendar(year)
   
 #Fim do bloco de funções do calendário
 
