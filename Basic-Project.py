@@ -35,7 +35,7 @@ def main():
     elif op == 4:
           print("\t\t\t\t\nDeveloping process...")
           time.sleep(2)
-          sys.exit()
+          main()
     elif op == 0:
           go_back()
     #End of "Do-While"
