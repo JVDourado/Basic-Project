@@ -33,7 +33,7 @@ def main():
     elif op == 3:
         game()
     elif op == 4:
-          coin_converter()
+          currency_converter()
     elif op == 0:
           go_back = str(input("Wanna end the program? (Y/N)"))
           returning_call = returning(go_back)
@@ -713,7 +713,7 @@ class converter:
             return self.coin_value * 57.18
 
 
-def coin_converter():
+def currency_converter():
     os.system('cls')
 
     
