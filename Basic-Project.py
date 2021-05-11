@@ -7,15 +7,15 @@ def main():
     os.system('cls')
 
     print("\t\t\t\t   *** Basic Program ***\n")       
-    print("\t\t\t\t   ***  Version 1.2  ***\n\n")     
-    print("\t\t\t\t------------------------------\n") 
-    print("\t\t\t\t----------- PROGRAM ----------\n") 
-    print("\t\t\t\t----- [1] MATH           -----\n") 
-    print("\t\t\t\t----- [2] CALENDAR       -----\n") # Main menu
-    print("\t\t\t\t----- [3] GAME           -----\n") 
-    print("\t\t\t\t----- [4]                -----\n") 
-    print("\t\t\t\t----- [0] EXIT           -----\n") 
-    print("\t\t\t\t------------------------------\n") 
+    print("\t\t\t\t   ***  Version 1.3  ***\n\n")     
+    print("\t\t\t\t---------------------------------\n") 
+    print("\t\t\t\t------------ PROGRAM ------------\n")
+    print("\t\t\t\t----- [0] EXIT               -----\n")
+    print("\t\t\t\t----- [1] MATH               -----\n") 
+    print("\t\t\t\t----- [2] CALENDAR           -----\n") # Main menu
+    print("\t\t\t\t----- [3] GAME               -----\n") 
+    print("\t\t\t\t----- [4] CURRENCY CONVERTER -----\n") 
+    print("\t\t\t\t----------------------------------\n") 
 
     op = int(input("Insert the desired option: "))
     
@@ -33,74 +33,80 @@ def main():
     elif op == 3:
         game()
     elif op == 4:
-          print("\t\t\t\t\nDeveloping process...")
-          time.sleep(2)
-          main()
+          coin_converter()
     elif op == 0:
-          go_back()
+          go_back = str(input("Wanna end the program? (Y/N)"))
+          returning_call = returning(go_back)
+          returning_call.ending_program()
     #End of "Do-While"
 
-#########################################################################################
+#######################################################################################################
+          
+class calculations:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+
+    def add(self):
+        print("\n\t\t\t\t", self.a, " + ", self.b, " = ", (self.a + self.b))
+        print("\t\t\t\t---------------------------------\n")
+    
+    def subtraction(self):
+        print("\n\t\t\t\t", self.a, " - ", self.b, " = ", (self.a - self.b))
+        print("\t\t\t\t---------------------------------\n")
+    
+    def multiply(self):
+        print("\n\t\t\t\t", self.a, " * ", self.b, " = ", (self.a * self.b))
+        print("\t\t\t\t---------------------------------\n")
+    
+    def divide(self):
+        print("\n\t\t\t\t", self.a, " / ", self.b, " = ", (self.a / self.b))
+        print("\t\t\t\t---------------------------------\n")
+    
+    def exponentiation(self):
+        print("\n\t\t\t\t", self.a, " ^ ", self.b, " = ", (self.a ** self.b))
+        print("\t\t\t\t---------------------------------\n")
+
 
 def math():
   os.system('cls')
 
-  print("***  Math Menu  ***\n");
-  print("*** Version 1.1 ***\n\n");
-  print("--------------------------------\n")
-  print("----------    MATH    ----------\n")
-  a = int(input("   Type a number: "))
-  b = int(input("   Type another number: "))
-  print("\n'+' to add\n'-' to subtract\n'*' to multiply\n'/' to divide\n'^' to power\n")
-  symbol = str(input("Type an operator: "))
+  print("\t\t\t\t***  Math Menu  ***\n");
+  print("\t\t\t\t*** Version 1.2 ***\n\n");
+  print("\t\t\t\t--------------------------------\n")
+  print("\t\t\t\t----------    MATH    ----------\n")
+  
+  a = int(input("\t\t\t\t   Type a number: "))
+  b = int(input("\t\t\t\t   Type another number: "))
+  calculation = calculations(a, b)
+  
+  print("\n\t\t\t\t'+' to add\n\t\t\t\t'-' to subtract\n\t\t\t\t'*' to multiply\n\t\t\t\t'/' to divide\n\t\t\t\t'^' to power\n")
+  symbol = str(input("\t\t\t\tType an operator: "))
 
   while True:
       if symbol == '+':
-          print("\n", a," + ", b, " = ",addition(a,b))
-          print("---------------------------------\n")
-          time.sleep(2)
+          calculation.add()
+          time.sleep(4)
           main()
       elif symbol == '-':
-          print("\n", a," - ", b, " = ",sibtraction(a,b))
-          print("---------------------------------\n")
-          time.sleep(2)
+          calculation.subtraction()
+          time.sleep(4)
           main()
       elif symbol == '*':
-          print("\n", a," * ", b, " = ",multiplication(a,b))
-          print("---------------------------------\n")
-          time.sleep(2)
+          calculation.multiply()
+          time.sleep(4)
           main()
       elif symbol == '/':
-          print("\n", a," / ", b, " = ",division(a,b))
-          print("---------------------------------\n")
-          time.sleep(2)
+          calculation.divide()
+          time.sleep(4)
           main()
       elif symbol == '^':
-          print("\n", a," ^ ", b, " = ",exponentiation(a,b))
-          print("---------------------------------\n")
-          time.sleep(2)
+          calculation.exponentiation()
+          time.sleep(4)
           main()
       else:
           math()
-
-  
       
-  
-def addition(a,b): # Addition function
-    return a+b
-
-def subtraction(a,b): # Subtraction function
-    return a-b
-
-def multiplication(a,b): # Multiplication function
-    return a*b
-
-def division(a,b): # Division function
-    return a/b
-
-def exponentiation(a,b): # Exponentiation function
-    return a ** b
-
 ################################################################################
 
 def calend():
@@ -131,7 +137,6 @@ def calend():
     if calend_op == 'P' or calend_op == 'p':
         os.system('cls')
         previous_calendar(year)
-        
 def next_calendar(year):
     year = year + 1
     print(calendar.TextCalendar(calendar.SUNDAY).formatyear(year))
@@ -179,24 +184,27 @@ def previous_calendar(year):
     if calend_op == 'P' or calend_op == 'p':
         os.system('cls')
         previous_calendar(year)
-        
-########################################################################################
 
+################################################################################################
+
+#Inicio dp bloco de funções do game
 def game():
     os.system('cls')
     print("\t\t\t\t***  Game Menu  ***\n");
     print("\t\t\t\t*** Version 1.0 ***\n\n");
-    print("\t\t\t\t------------------------------------\n")
-    print("\t\t\t\t----------      GAME      ----------\n")
-    print("\t\t\t\t------ [1] GUESS THE NUMBER   ------\n")
-    print("\t\t\t\t------ [2] TIC-TAC-TOE        ------\n")
-    print("\t\t\t\t------ [0] PREVIOUS MENU      ------\n")
-    print("\t\t\t\t------------------------------------\n")
+    print("\t\t\t\t-----------------------------------------\n")
+    print("\t\t\t\t----------        GAME         ----------\n")
+    print("\t\t\t\t------ [0] PREVIOUS MENU           ------\n")
+    print("\t\t\t\t------ [1] GUESS THE NUMBER        ------\n")
+    print("\t\t\t\t------ [2] TIC-TAC-TOE             ------\n")
+    print("\t\t\t\t------ [3] ROLL THE DICE           ------\n")
+    print("\t\t\t\t------ [4] ROCK, PAPER OR SCISSORS ------\n")
+    print("\t\t\t\t-----------------------------------------\n")
 
     game_op = int(input("Insert the desired option: "))
 
     while True:
-        if game_op < 0 or game_op > 2:
+        if game_op < 0 or game_op > 4:
             os.system('cls')
         else:
             break
@@ -207,10 +215,19 @@ def game():
     elif game_op == 2:
         os.system('cls')
         tic_tac_toe()
+    elif game_op == 3:
+        os.system('cls')
+        roll_dice()
+    elif game_op == 4:
+          r_p_s()
     elif game_op == 0:
-        certainty_game()
+        go_back = str(input("Wanna go back to the main menu ? (Y/N) "))
+        returning_call = returning(go_back)
+        returning_call.certainty_game()
 
 def guess_number():
+    from random import randint
+
     
     rand_number = randint(1, 1000) # random number between 1 and 1000
     guess = 0
@@ -224,7 +241,8 @@ def guess_number():
                 print('Too high')
             else:
                 print('Too low')
-    print ('End Game!')
+    print ('\nEnd Game!')
+    time.sleep(2)
     game()
 
 def tic_tac_toe():
@@ -419,63 +437,314 @@ def tic_tac_toe():
                 cur_player = player2
             else:
                 cur_player = player1
-                
-#######################################################################################################                
-                
-def go_back():
-    go_back = str(input("\nWanna end the program? (Y/N) "))
 
-    while go_back != 'Y' or go_back != 'y':
-        if go_back == 'N' or go_back == 'n':
-            print("\nGoing back to the main menu...")
-            time.sleep(2)
-            main()
-        else:
-            break
+def roll_dice():
+    from random import randint
     
-    if go_back == 'Y' or go_back == 'y':
-        certainty = str(input("\nAre you sure? (Y/N) "))
-        while certainty != 'Y' or certainty != 'y':
-            if certainty == 'N' or certainty == 'n':
-                os.system('cls')
+    repeat = True
+    while repeat:
+       os.system('cls')
+       print("Rolling the dice")
+       time.sleep(2)
+       print(randint(1,6))
+
+       repeat = input("\nDo you wanna roll again Y/N?")
+       if repeat == ("y" or "yes") in repeat.lower():
+            continue
+       else:
+            time.sleep(2)
+            game()
+    
+def r_p_s():
+    import random
+
+    while True:
+        user_action = input("Enter a choice (rock, paper, scissors): ")
+        
+        possible_actions = ["rock", "paper", "scissors"]
+        computer_action = random.choice(possible_actions)
+        
+        print("\nYou chose: ", user_action)
+        if user_action == 'scissors':
+            print("""\n
+                _       ,/'
+               (_).  ,/'
+               __  ::
+              (__)'  `\.
+                        `\.
+            \n""")
+        elif user_action == 'paper':
+            print("""\n
+
+            ----------
+           /         /
+          /         /
+         /         /
+        /         /
+        ----------
+            \n""")
+        elif user_action == 'rock':
+            print("""
+
+             __________________
+           .-'  \ _.-''-._ /  '-.
+         .-/\   .'.      .'.   /\-.
+        _'/  \.'   '.  .'   './  \'_
+      :======:======::======:======:  
+       '. '.  \     ''     /  .' .'
+         '. .  \   :  :   /  . .'
+           '.'  \  '  '  /  '.'
+             ':  \:    :/  :'
+               '. \    / .'
+                 '.\  /.'    
+                   '\/'
+            """)
+        time.sleep(2)
+        os.system('cls')
+
+        print("\nComputer chose: ", computer_action)
+        if computer_action == 'scissors':
+            print("""\n
+                _       ,/'
+               (_).  ,/'
+               __  ::
+              (__)'  `\.
+                        `\.
+            \n""")
+        elif computer_action == 'paper':
+            print("""\n
+
+            ----------
+           /         /
+          /         /
+         /         /
+        /         /
+        ----------
+            \n""")
+        elif computer_action == 'rock':
+            print("""
+
+             __________________
+           .-'  \ _.-''-._ /  '-.
+         .-/\   .'.      .'.   /\-.
+        _'/  \.'   '.  .'   './  \'_
+      :======:======::======:======:  
+       '. '.  \     ''     /  .' .'
+         '. .  \   :  :   /  . .'
+           '.'  \  '  '  /  '.'
+             ':  \:    :/  :'
+               '. \    / .'
+                 '.\  /.'    
+                   '\/'
+            """)
+        time.sleep(2)
+        os.system('cls')
+        
+
+        if user_action == computer_action:
+            print(f"Both players selected {user_action}. It's a tie!")
+        elif user_action == "rock":
+            if computer_action == "scissors":
+                print("Rock smashes scissors! You win!")
+            else:
+                print("Paper covers rock! You lose.")
+        elif user_action == "paper":
+            if computer_action == "rock":
+                print("Paper covers rock! You win!")
+            else:
+                print("Scissors cuts paper! You lose.")
+        elif user_action == "scissors":
+            if computer_action == "paper":
+                print("Scissors cuts paper! You win!")
+            else:
+                print("Rock smashes scissors! You lose.")
+
+        play_again = input("Play again? (y/n): ")
+        if play_again.lower() != "y":
+            game()
+#################################################################################
+
+class returning:
+    def __init__(self, go_back):
+        self.go_back = go_back
+
+    def ending_program(self):
+        while self.go_back != 'Y' or self.go_back != 'y':
+            if self.go_back == 'N' or self.go_back == 'n':
+                print("\nRestarting program...")
                 time.sleep(2)
                 main()
             else:
                 break
 
-        if certainty == 'Y' or certainty == 'y':
+        if self.go_back == 'Y' or self.go_back == 'y':
             print("\nEnding program...")
             time.sleep(2)
             sys.exit()
 
-def certainty_game():
-    go_back = str(input("Are you sure? (Y/N) "))
-          
-    while go_back != 'Y' or go_back != 'y':
-            if go_back == 'N' or go_back == 'n':
-                os.system('cls')
+    def certainty_game(self): 
+        while self.go_back != 'Y' or self.go_back != 'y':
+                if self.go_back == 'N' or self.go_back == 'n':
+                    os.system('cls')
+                    time.sleep(2)
+                    game()
+                else:
+                    break
+
+        if self.go_back == 'Y' or self.go_back == 'y':
+                print("\nGoing back to the main menu...")
                 time.sleep(2)
-                game()
-            else:
-                break
+                main()
 
-    if go_back == 'Y' or go_back == 'y':
+
+###############################################################################
+
+class converter:
+    def __init__(self, coin_type, convertion_country, coin_value):
+        self.coin_type = coin_type
+        self.convertion_country = convertion_country
+        self.coin_value = coin_value
+
+    def user_chosen_option(self):
+        if self.coin_type == "BRL":
+            print("\t\t\t\tYou chose the Brazilian coin!!")
+        elif self.coin_type == "USD":
+            print("\t\t\t\tYou chose the North American coin!!")
+        elif self.coin_type == "JPY":
+            print("\t\t\t\tYou chose the Japanese coin!!")
+        elif self.coin_type == "RUB":
+            print("\t\t\t\tYou chose the Russian coin!!")
+        elif self.coin_type == "AUD":
+            print("\t\t\t\tYou chose the Australian coin!!")
+        elif self.coin_type == "INR":
+            print("\t\t\t\tYou chose the Indian coin!!")
+            
+    def convertion_to_country(self):
+        if self.coin_type == self.convertion_country:
+            print("\t\t\t\tYour not able to convert a coin to the same country...")
+            time.sleep(2)
+            print("Bye bye!!")
+            time.sleep(3)
             main()
+            
+        elif self.convertion_country == "BRL":
+            print("\t\t\t\tR$ ", self.to_BRL())
+        elif self.convertion_country == "USD":
+            print("\t\t\t\tUS$ ", self.to_USD())
+        elif self.convertion_country == "JPY":
+            print("\t\t\t\t¥ ", self.to_JPY())
+        elif self.convertion_country == "RUB":
+            print("\t\t\t\t₽ ", self.to_RUB())
+        elif self.convertion_country == "AUD":
+            print("\t\t\t\tA$ ", self.to_AUD())
+        elif self.convertion_country == "INR":
+            print("\t\t\t\t₹ ", self.to_INR())
 
-def certainty_math():
-    go_back = str(input("Wanna go back?? (Y/N) "))
-          
-    while go_back != 'Y' or go_back != 'y':
-            if go_back == 'N' or go_back == 'n':
-                os.system('cls')
-                sys.exit()
-            else:
-                break
+    def to_BRL(self):
+        if self.coin_type == "USD":
+            return self.coin_value * 5.35
+        elif self.coin_type == "JPY":
+            return self.coin_value * 0.049
+        elif self.coin_type == "RUB":
+            return self.coin_value * 0.072
+        elif self.coin_type == "AUD":
+            return self.coin_value * 4.15
+        elif self.coin_type == "INR":
+            return self.coin_value * 0.073
+        
+    def to_USD(self):
+        if self.coin_type == "BRL":
+            return self.coin_value * 0.19
+        elif self.coin_type == "JPY":
+            return self.coin_value * 0.0092
+        elif self.coin_type == "RUB":
+            return self.coin_value * 0.013
+        elif self.coin_type == "AUD":
+            return self.coin_value * 0.77
+        elif self.coin_type == "INR":
+            return self.coin_value * 0.014
+        
+    def to_JPY(self):
+        if self.coin_type == "BRL":
+            return self.coin_value * 20.40
+        elif self.coin_type == "USD":
+            return self.coin_value * 109.20
+        elif self.coin_type == "RUB":
+            return self.coin_value * 1.46
+        elif self.coin_type == "AUD":
+            return self.coin_value * 84.59
+        elif self.coin_type == "INR":
+            return self.coin_value * 1.48
+        
+    def to_RUB(self):
+        if self.coin_type == "BRL":
+            return self.coin_value * 13.97
+        elif self.coin_type == "USD":
+            return self.coin_value * 74.81
+        elif self.coin_type == "JPY":
+            return self.coin_value * 0.69
+        elif self.coin_type == "AUD":
+            return self.coin_value * 57.95
+        elif self.coin_type == "INR":
+            return self.coin_value * 1.01
+        
+    def to_AUD(self):
+        if self.coin_type == "BRL":
+            return self.coin_value * 0.24
+        elif self.coin_type == "USD":
+            return self.coin_value * 1.29
+        elif self.coin_type == "JPY":
+            return self.coin_value * 0.012
+        elif self.coin_type == "RUB":
+            return self.coin_value * 0.017
+        elif self.coin_type == "INR":
+            return self.coin_value * 0.017
+        
+    def to_INR(self):
+        if self.coin_type == "BRL":
+            return self.coin_value * 13.78
+        elif self.coin_type == "USD":
+            return self.coin_value * 73.80
+        elif self.coin_type == "JPY":
+            return self.coin_value * 0.68
+        elif self.coin_type == "RUB":
+            return self.coin_value * 0.99
+        elif self.coin_type == "AUD":
+            return self.coin_value * 57.18
 
-    if go_back == 'Y' or go_back == 'y':
-            main()
-#Funções de retorno
 
-##########################################################################################             
+def coin_converter():
+    os.system('cls')
 
+    
+    print("\t\t\t\t***  Coin Menu  ***\n");
+    print("\t\t\t\t*** Version 1.1 ***\n\n");
+    print("\t\t\t\t---------------------------------------------\n")
+    print("\t\t\t\t----------   CURRENCY CONVERTER    ----------\n")
+    coin_type = str(input("""\t\t\t\tType the country coin\n
+                                 BRL - Brazilian coin
+                                 USD - American coin
+                                 JPY - Japanese coin
+                                 RUB - Russian coin
+                                 AUD - Australian coin
+                                 INR - Indian coin\n
+                                 : """))
+    
+    convertion_country = str(input("\t\t\t\tType a destination country: "))
+    coin_value = float(input("\t\t\t\tEnter the amount that is going to be converted: "))
+    
+    convertion = converter(coin_type, convertion_country, coin_value)
+    
+    convertion.user_chosen_option()
+    
+    convertion.convertion_to_country()
+        
+    print("\t\t\t\t---------------------------------------------\n")
+   
+    print("\n\t\t\t\tGoing back to the main menu...")
+    time.sleep(10)
+    main()
+
+
+###############################################################################
 main()
